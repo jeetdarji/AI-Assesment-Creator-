@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Text */
+    --text-primary: #303030;
+    --text-secondary: rgba(94, 94, 94, 0.8);
+    --text-disabled: #A9A9A9;
+
+    /* Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-white-75: rgba(255, 255, 255, 0.75);
+    --bg-white-30: rgba(255, 255, 255, 0.3);
+    --bg-white-25: rgba(255, 255, 255, 0.25);
+    --bg-white-01: rgba(255, 255, 255, 0.01);
+    --bg-offwhite: #F6F6F6;
+    --bg-offwhite-20: #F0F0F0;
+    --bg-offwhite-50: #CECECE;
+    --bg-dark: #5E5E5E;
+    --bg-gradient: linear-gradient(180deg, #EEEEEE 0%, #DADADA 100%);
+    --bg-gradient-illustration: linear-gradient(179.67deg, #F2F2F2 -15.9%, #EFEFEF 158.68%);
+
+    /* Buttons */
+    --btn-primary: #181818;
+    --btn-primary-orange: #FF5623;
+    --btn-create: #272727;
+    --btn-create-shadow: 0px 16px 48px rgba(255, 255, 255, 0.12),
+      0px 32px 48px rgba(255, 255, 255, 0.2),
+      inset 0px -1px 3.5px rgba(177, 177, 177, 0.6),
+      inset 0px 0px 34.5px rgba(255, 255, 255, 0.25);
+
+    /* Main Colors */
+    --color-navy: #011625;
+    --color-navy-light: #417BA4;
+    --color-red: #FF4040;
+    --color-orange-gradient: linear-gradient(180deg, #E56820 0%, #D45E3E 100%);
+    --color-orange-gradient-bright: linear-gradient(180deg, #FF7950 0%, #C0350A 100%);
+
+    /* Neutrals */
+    --neutral-grey-2: #D4D4D4;
+    --neutral-grey-3: #E1DCEB;
+    --neutral-grey-4: #CCC6D9;
+    --neutral-grey-5: #DDDDDD;
+    --neutral-grey-6: #BDC0C6;
+
+    /* Surfaces */
+    --surface-dark: #353739;
+    --surface-on: #1D1B20;
+    --surface-shadow: 0px 16px 48px rgba(0, 0, 0, 0.12),
+      0px 32px 48px rgba(0, 0, 0, 0.2);
+
+    /* Sidebar */
+    --sidebar-width: 304px;
+    --topbar-height: 56px;
+  }
+}
+
+/* ─── Smooth global transitions ─── */
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-press {
+    transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.16s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+    will-change: transform;
+  }
+
+  .btn-press:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  .btn-press:active:not(:disabled) {
+    transform: translateY(1px) scale(0.97);
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-dark {
+    background: rgba(24, 24, 24, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* ─── Button hover / press micro-interactions ─── */
+button,
+[role="button"] {
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+/* ─── Scroll smoothness ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Focus ring ─── */
+*:focus-visible {
+  outline: 2px solid rgba(48, 48, 48, 0.3);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ─── Stagger animation delays for children ─── */
+.stagger-children > *:nth-child(1) { animation-delay: 0s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.18s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.24s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* ─── Generation Loading Animations ─── */
+@keyframes spin-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+

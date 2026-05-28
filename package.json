@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix frontend run build && npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build",
+    "typecheck": "npm --prefix frontend run typecheck && npm --prefix backend run typecheck",
+    "lint:frontend": "npm --prefix frontend run lint"
+  }
+}
