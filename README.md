@@ -12,6 +12,8 @@
 
 > An AI-powered educational platform that enables teachers to automatically generate structured, print-ready question papers from uploaded reference material — complete with answer keys, difficulty tagging, and PDF export.
 
+### 🔗 Live Demo: [https://ai-assesment-creator-rho.vercel.app](https://ai-assesment-creator-rho.vercel.app)
+
 ---
 
 ## Table of Contents
